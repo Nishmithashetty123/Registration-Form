@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+      #box{
+        display: flex;
+       width: 500px;
+       margin-left: 500px;
+       margin-top: 100px;
+       background-color:rgb(54, 105, 111);
+        border-radius: 1%;
+        border-color: black;
+        margin-left: ;
+      }
+       
+        .error {
+            color: red;
+        }
+        h1{
+ background-color:red(20, 70, 70);
+            color: rgb(13, 18, 18);
+        }
+        
+    </style>
+    
+</head>
+<body><div id="box">
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form id="registrationForm" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+                <span class="error" id="nameError"></span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Only proper format accepted" required>
+                <span class="error" id="emailError"></span>
+            </div>
+  <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="tel" class="form-control" id="age" name="age"  placeholder="max limit should be 3" required pattern="[0-9]{1,3}">
+                <span class="error" id="ageError"></span>
+            </div>
+             <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" required 88>
+                <span class="error" id="phoneError"></span>
+             </div>
+              <div><button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+              <br>
+        </form>
+    </div>
+</div>
+    
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+function validateForm() 
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var age = document.getElementById("age").value;
+            var phone = document.getElementById("phone").value;
+
+            var nameError = document.getElementById("nameError");
+            var emailError = document.getElementById("emailError");
+            var ageError = document.getElementById("ageError");
+            var phoneError = document.getElementById("phoneError");
+
+            var isValid = true;
+
+            // Validate name
+            if (name === "") {
+                nameError.innerHTML = "Name is required";
+                isValid = false;
+            } else {
+                nameError.innerHTML = "";
+            }
+
+            // Validate email
+ if (email === "") {
+                emailError.innerHTML = "Email is required";
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                emailError.innerHTML = "Invalid email format";
+                isValid = false;
+            } else {
+                emailError.innerHTML = "";
+            }
+
+            // Validate age
+            if (age === "") {
+                ageError.innerHTML = "Age is required";
+                isValid = false;
+            } else if (isNaN(age) || age.length !== 3) {
+                ageError.innerHTML = "Age must be a 3-digit number";
+                isValid = false;
+            } else {
+                ageError.innerHTML = "";
+            }
+
+            // Validate phone number
+            
+            if (phone === "") {
+                emailError.innerHTML = "phone is required";
+                isValid = false;
+            } else if (!isValidphone(phone)) {
+                phoneError.innerHTML = "Invalid phone format";
+                isValid = false;
+            } else {
+                phoneError.innerHTML = "";
+            }
